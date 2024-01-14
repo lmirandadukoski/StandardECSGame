@@ -45,19 +45,20 @@ public:
 		int idx = 0;
 		for (json::iterator it = layerData.begin(); it != layerData.end(); ++it) {
 			if (*it == 0) {
+				idx++;
 				continue;
 			}
 
 			int colIndex = *it % _numColumns;
 			int rowIndex = (*it - colIndex) / _numColumns;
 
-			//std::cout << idx << ": rowI = " << rowIndex << " colI = " << colIndex << " value = " << *it << '\n';
+			std::cout << idx << ": rowI = " << rowIndex << " colI = " << colIndex << " value = " << *it << '\n';
 
 			Tile tile;
 			tile.src = { rowIndex * _tileWidth, colIndex * _tileHeight, _tileWidth, _tileHeight };
 			//std::cout << "src.x = " << tile.src.x << " src.y = " << tile.src.y << " src.w = " << tile.src.w << " src.h = " << tile.src.h << '\n';
-			tile.dst = { 0, 0, 0, 0 };
-			_tiles.emplace_back(tile);
+			tile.dst = { 0, 0, _tileWidth, _tileHeight };
+			_tiles.push_back(tile);
 			idx++;
 		}
 	}
@@ -65,11 +66,11 @@ public:
 	inline void renderTileMap() {
 		int idx = 0;
 		for (auto tile : _tiles) {
-			SDL_RenderCopy(window.getRenderer(), _tilesetTexture, &tile.src, &tile.src);
+			SDL_RenderCopy(window.getRenderer(), _tilesetTexture, &tile.src, &tile.dst);
 			idx++;
 		}
 
-		std::cout << idx << std::endl;
+		//std::cout << idx << std::endl;
 	}
 
 private:
