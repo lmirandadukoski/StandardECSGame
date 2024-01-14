@@ -329,10 +329,20 @@
     <ClInclude Include="include\SDL2_image\include\SDL_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\TestJSON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Penguin_SpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\rawTestTileset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="levels\TestTileMap.json" />
+    <None Include="levels\TestTileset.json" />
   </ItemGroup>
 </Project>

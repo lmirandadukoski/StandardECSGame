@@ -253,11 +253,17 @@
     <ClInclude Include="src\math\Vector2D.h" />
     <ClInclude Include="src\scenes\GameScene.h" />
     <ClInclude Include="src\scenes\IScene.h" />
+    <ClInclude Include="src\TestJSON.h" />
     <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Penguin_SpriteSheet.png" />
+    <Image Include="assets\rawTestTileset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="levels\TestTileMap.json" />
+    <None Include="levels\TestTileset.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

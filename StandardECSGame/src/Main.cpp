@@ -7,14 +7,20 @@
 
 #include "scenes/GameScene.h"
 
+#include "TestJSON.h"
+
 GameScene gameScene{""};
+TestJSON test;
 
 int main(int argx, char* argv[]) {
+    test.readJSONFile();
+
     bool initialised = window.tryCreateWindow();
     if (!initialised) {
         return 0;
     }
 
+    test.loadTileMap();
     gameScene.initialiseScene();
 
     bool hasQuit = false;       
@@ -38,6 +44,7 @@ int main(int argx, char* argv[]) {
         }
 
         window.clearRenderer();
+        test.renderTileMap();
         gameScene.render(TIME_STEP);
         window.updateRenderer();
     }
