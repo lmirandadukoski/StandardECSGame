@@ -158,6 +158,7 @@
     <ClCompile Include="src\scenes\GameScene.cpp" />
     <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\WIndow.cpp" />
+    <ClCompile Include="src\math\Vector2DInt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\entt.hpp" />
@@ -256,6 +257,7 @@
     <ClInclude Include="src\TestJSON.h" />
     <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\Window.h" />
+    <ClInclude Include="src\math\Vector2DInt.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Penguin_SpriteSheet.png" />

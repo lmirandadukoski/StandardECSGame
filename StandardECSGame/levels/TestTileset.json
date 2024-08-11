@@ -1,15 +1,14 @@
 { "columns":64,
- "image":"..\/Cpp Projects\/StandardECSGame\/StandardECSGame\/assets\/rawTestTileset.png",
+ "image":"..\/assets\/rawTestTileset.png",
  "imageheight":2048,
  "imagewidth":1024,
  "margin":0,
- "name":"TestTileset",
+ "name":"rawTestTileset",
  "spacing":0,
  "tilecount":8192,
- "tiledversion":"1.10.2",
+ "tiledversion":"1.11.0",
  "tileheight":16,
  "tilewidth":16,
- "transparentcolor":"#ff00ff",
  "type":"tileset",
  "version":"1.10"
 }
