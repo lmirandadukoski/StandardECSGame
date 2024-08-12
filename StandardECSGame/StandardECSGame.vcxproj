@@ -149,6 +149,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\systems\PlayerMovementSystem.cpp" />
+    <ClCompile Include="src\systems\AnimationSystem.cpp" />
+    <ClCompile Include="src\systems\InputSystem.cpp" />
     <ClCompile Include="src\helpers\AnimationHelper.cpp" />
     <ClCompile Include="src\helpers\TextureHelper.cpp" />
     <ClCompile Include="src\helpers\Vector2DHelper.cpp" />
@@ -161,6 +164,8 @@
     <ClCompile Include="src\math\Vector2DInt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\systems\PlayerMovementSystem.h" />
+    <ClInclude Include="src\systems\AnimationSystem.h" />
     <ClInclude Include="dependencies\entt.hpp" />
     <ClInclude Include="include\SDL2\include\begin_code.h" />
     <ClInclude Include="include\SDL2\include\close_code.h" />
@@ -241,6 +246,7 @@
     <ClInclude Include="include\SDL2\include\SDL_video.h" />
     <ClInclude Include="include\SDL2\include\SDL_vulkan.h" />
     <ClInclude Include="include\SDL2_image\include\SDL_image.h" />
+    <ClInclude Include="src\systems\InputSystem.h" />
     <ClInclude Include="src\components\AnimationComponent.h" />
     <ClInclude Include="src\components\AnimatorComponent.h" />
     <ClInclude Include="src\components\InputComponent.h" />
@@ -254,6 +260,7 @@
     <ClInclude Include="src\math\Vector2D.h" />
     <ClInclude Include="src\scenes\GameScene.h" />
     <ClInclude Include="src\scenes\IScene.h" />
+    <ClInclude Include="src\systems\ISystem.h" />
     <ClInclude Include="src\TestJSON.h" />
     <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\Window.h" />

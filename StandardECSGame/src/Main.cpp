@@ -9,10 +9,11 @@
 
 #include "TestJSON.h"
 
-GameScene gameScene{""};
+GameScene gameScene{ "Game Scene" };
 TestJSON test;
 
 int main(int argx, char* argv[]) {
+    //GameScene gameScene{"Game Scene"};
     test.readJSONFile();
 
     bool initialised = window.tryCreateWindow();
@@ -21,7 +22,7 @@ int main(int argx, char* argv[]) {
     }
 
     test.loadTileMap();
-    gameScene.initialiseScene();
+    gameScene.load();
 
     bool hasQuit = false;       
     float lastTime = Time::elapsedTimeInSeconds();
@@ -49,7 +50,7 @@ int main(int argx, char* argv[]) {
         window.updateRenderer();
     }
 
-    gameScene.destroyScene();
+    gameScene.destroy();
     window.destroyWindow();
 
 	return 0;
