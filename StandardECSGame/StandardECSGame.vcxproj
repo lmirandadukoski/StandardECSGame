@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\DemoGame.cpp" />
     <ClCompile Include="src\systems\PlayerMovementSystem.cpp" />
     <ClCompile Include="src\systems\AnimationSystem.cpp" />
     <ClCompile Include="src\systems\InputSystem.cpp" />
@@ -160,11 +161,11 @@
     <ClCompile Include="src\math\Vector2D.cpp" />
     <ClCompile Include="src\scenes\GameScene.cpp" />
     <ClCompile Include="src\Time.cpp" />
-    <ClCompile Include="src\WIndow.cpp" />
+    <ClCompile Include="src\Window.cpp" />
     <ClCompile Include="src\math\Vector2DInt.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Main.h" />
+    <ClInclude Include="src\game\DemoGame.h" />
     <ClInclude Include="src\scenes\config\GameSceneConfig.h" />
     <ClInclude Include="src\systems\PlayerMovementSystem.h" />
     <ClInclude Include="src\systems\AnimationSystem.h" />

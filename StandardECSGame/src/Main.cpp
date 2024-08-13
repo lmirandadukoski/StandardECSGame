@@ -1,47 +1,20 @@
 #include <iostream>
 #include <algorithm>
 
-#include "Window.h"
 #include "Input.h"
 #include "Time.h"
 
-#include "scenes/GameScene.h"
-#include "scenes/config/GameSceneConfig.h"
-#include "math/Vector2D.h"
-
-#include "TestJSON.h"
-#include "Main.h"
-
-TestJSON test;
-
-GameSceneConfig constructGameSceneConfig() {
-    GameSceneConfig config = { "Game", 
-        "./assets/Penguin_SpriteSheet.png", 
-        "./assets/rawTestTileset.png", 
-        "levels/TestTileset.json", 
-        "levels/test2.json",
-        { 0.0f, 50.0f } };
-    /*config.name = "Game";
-    config.playerSpriteSheetPath = "./assets/Penguin_SpriteSheet.png";
-    config.tilesetTexturePath = "./assets/rawTestTileset.png";
-    config.tilesetJSONPath = "levels/TestTileset.json";
-    config.tileMapJSONPath = "levels/test2.json";*/
-
-    return config;
-}
+#include "game/DemoGame.h"
 
 int main(int argx, char* argv[]) {
-    GameSceneConfig config = constructGameSceneConfig();
-    GameScene gameScene = {config};
-    test.readJSONFile();
-
-    bool initialised = window.tryCreateWindow(config.name);
+    DemoGame game;
+    
+    bool initialised = game.createNewGame();
     if (!initialised) {
         return 0;
     }
 
-    test.loadTileMap();
-    gameScene.load();
+    game.load();
 
     bool hasQuit = false;       
     float lastTime = Time::elapsedTimeInSeconds();
@@ -57,20 +30,16 @@ int main(int argx, char* argv[]) {
         while (accumulator >= TIME_STEP) {
             while (input.pollInputEvent()) {
                 hasQuit = input.hasQuit();
-                gameScene.update(TIME_STEP);
+                game.update(TIME_STEP);
             }
 
             accumulator -= TIME_STEP;
         }
 
-        window.clearRenderer();
-        test.renderTileMap();
-        gameScene.render(TIME_STEP);
-        window.updateRenderer();
+        game.render(TIME_STEP);
     }
 
-    gameScene.destroy();
-    window.destroyWindow();
+    game.destroy();    
 
 	return 0;
 }

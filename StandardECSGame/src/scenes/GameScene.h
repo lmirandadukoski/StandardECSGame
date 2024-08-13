@@ -24,6 +24,8 @@ public:
 	GameScene(GameSceneConfig config);
 	~GameScene() = default;
 
+	const char* getName();
+
 	void load();
 	void update(float deltaTime);
 	void render(float deltaTime);

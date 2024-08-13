@@ -4,6 +4,8 @@
 
 class IScene {
 public:
+	virtual const char* getName() = 0;
+
 	virtual void load() = 0;
 	virtual void update(float deltaTime) = 0;
 	virtual void render(float deltaTime) = 0;

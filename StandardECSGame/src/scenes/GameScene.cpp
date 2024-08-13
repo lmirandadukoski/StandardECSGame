@@ -5,6 +5,10 @@ GameScene::GameScene(GameSceneConfig config) {
 	_name = config.name;
 }
 
+const char* GameScene::getName() {
+    return _config.name;
+}
+
 void GameScene::load() {
     _updateSystems.push_back(new InputSystem());
     _updateSystems.push_back(new PlayerMovementSystem());
