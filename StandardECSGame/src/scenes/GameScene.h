@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "IScene.h"
+#include "config/GameSceneConfig.h"
 
 #include "../helpers/AnimationHelper.h"
 #include "../helpers/Vector2DHelper.h"
@@ -20,7 +21,7 @@
 
 class GameScene : public IScene {
 public:
-	GameScene(const char* name);
+	GameScene(GameSceneConfig config);
 	~GameScene() = default;
 
 	void load();
@@ -32,5 +33,6 @@ private:
 	void _createPlayerEntity();
 	void _createTileMap();
 
+	GameSceneConfig _config;
 	std::vector<ISystem*> _updateSystems, _renderSystems;
 };

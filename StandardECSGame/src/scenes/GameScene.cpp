@@ -1,7 +1,8 @@
 #include "GameScene.h"
 
-GameScene::GameScene(const char* name) {
-	_name = name;
+GameScene::GameScene(GameSceneConfig config) {
+    _config = config;
+	_name = config.name;
 }
 
 void GameScene::load() {
@@ -32,7 +33,7 @@ void GameScene::destroy() {
 void GameScene::_createPlayerEntity() {
     auto entity = _registry.create();
 
-    _registry.emplace<TransformComponent>(entity, Vector2D{ 0.0f, 50.0f });
+    _registry.emplace<TransformComponent>(entity, _config.playerStartPosition);
 
     std::map<const char*, AnimationComponent> animations = {
         {"idle", helpers::createAnimation(PLAYER_SPRITESHEET_PATH, 0, 2, 100)},

@@ -6,17 +6,36 @@
 #include "Time.h"
 
 #include "scenes/GameScene.h"
+#include "scenes/config/GameSceneConfig.h"
+#include "math/Vector2D.h"
 
 #include "TestJSON.h"
+#include "Main.h"
 
-GameScene gameScene{ "Game Scene" };
 TestJSON test;
 
+GameSceneConfig constructGameSceneConfig() {
+    GameSceneConfig config = { "Game", 
+        "./assets/Penguin_SpriteSheet.png", 
+        "./assets/rawTestTileset.png", 
+        "levels/TestTileset.json", 
+        "levels/test2.json",
+        { 0.0f, 50.0f } };
+    /*config.name = "Game";
+    config.playerSpriteSheetPath = "./assets/Penguin_SpriteSheet.png";
+    config.tilesetTexturePath = "./assets/rawTestTileset.png";
+    config.tilesetJSONPath = "levels/TestTileset.json";
+    config.tileMapJSONPath = "levels/test2.json";*/
+
+    return config;
+}
+
 int main(int argx, char* argv[]) {
-    //GameScene gameScene{"Game Scene"};
+    GameSceneConfig config = constructGameSceneConfig();
+    GameScene gameScene = {config};
     test.readJSONFile();
 
-    bool initialised = window.tryCreateWindow();
+    bool initialised = window.tryCreateWindow(config.name);
     if (!initialised) {
         return 0;
     }

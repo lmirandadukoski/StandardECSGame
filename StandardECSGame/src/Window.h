@@ -13,7 +13,7 @@ public:
 	Window();
 	~Window();
 
-	bool tryCreateWindow();
+	bool tryCreateWindow(const char* windowName);
 	void clearRenderer();
 	void updateRenderer();
 	void destroyWindow();

@@ -10,9 +10,9 @@ Window::~Window() {
 
 }
 
-bool Window::tryCreateWindow() {
+bool Window::tryCreateWindow(const char* windowName) {
     _window = SDL_CreateWindow(
-        "C++ Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, false);
+        windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, false);
     if (_window == NULL) {
         std::cout << "Could not create SDL window! Error: " << SDL_GetError() << std::endl;
         return false;
