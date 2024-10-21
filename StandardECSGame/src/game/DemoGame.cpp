@@ -5,12 +5,13 @@ DemoGame::DemoGame() : _gameScene{ _createGameSceneConfig() } {
 }
 
 bool DemoGame::createNewGame() {
-    return window.tryCreateWindow(_gameScene.getName());
+    return window.tryCreateWindow();
 }
 
 void DemoGame::load() {
     _testJSON.loadTileMap();
     _gameScene.load();
+    window.setWindowTitle(_getWindowTitle().c_str());
 }
 
 void DemoGame::update(float deltaTime) {
@@ -35,12 +36,15 @@ GameSceneConfig DemoGame::_createGameSceneConfig() {
         "./assets/rawTestTileset.png",
         "levels/TestTileset.json",
         "levels/test2.json",
-        { 0.0f, 50.0f } };
-    /*config.name = "Game";
-    config.playerSpriteSheetPath = "./assets/Penguin_SpriteSheet.png";
-    config.tilesetTexturePath = "./assets/rawTestTileset.png";
-    config.tilesetJSONPath = "levels/TestTileset.json";
-    config.tileMapJSONPath = "levels/test2.json";*/
+        { 0.0f, 50.0f },
+        1.5f };
 
     return config;
+}
+
+std::string DemoGame::_getWindowTitle() {
+    std::string currentTitle = "Demo Game - ";
+    currentTitle.append(_gameScene.getName());
+
+    return currentTitle;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "../Window.h"
 #include "../scenes/GameScene.h"
 #include "../scenes/config/GameSceneConfig.h"
@@ -22,5 +24,6 @@ private:
 	TestJSON _testJSON;
 
 	GameSceneConfig _createGameSceneConfig();
+	std::string _getWindowTitle();
 };
 

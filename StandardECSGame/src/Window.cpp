@@ -10,9 +10,9 @@ Window::~Window() {
 
 }
 
-bool Window::tryCreateWindow(const char* windowName) {
+bool Window::tryCreateWindow() {
     _window = SDL_CreateWindow(
-        windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, false);
+        "", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, false);
     if (_window == NULL) {
         std::cout << "Could not create SDL window! Error: " << SDL_GetError() << std::endl;
         return false;
@@ -26,6 +26,10 @@ bool Window::tryCreateWindow(const char* windowName) {
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
 
     return true;
+}
+
+void Window::setWindowTitle(const char* windowName) {
+    SDL_SetWindowTitle(_window, windowName);
 }
 
 void Window::clearRenderer() {

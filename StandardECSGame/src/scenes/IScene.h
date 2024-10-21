@@ -1,10 +1,11 @@
 #pragma once
 
+#include <string>
 #include "../../dependencies/entt.hpp"
 
 class IScene {
 public:
-	virtual const char* getName() = 0;
+	virtual std::string getName() = 0;
 
 	virtual void load() = 0;
 	virtual void update(float deltaTime) = 0;

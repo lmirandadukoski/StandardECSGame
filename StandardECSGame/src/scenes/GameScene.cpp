@@ -5,7 +5,7 @@ GameScene::GameScene(GameSceneConfig config) {
 	_name = config.name;
 }
 
-const char* GameScene::getName() {
+std::string GameScene::getName() {
     return _config.name;
 }
 
@@ -38,15 +38,8 @@ void GameScene::_createPlayerEntity() {
     auto entity = _registry.create();
 
     _registry.emplace<TransformComponent>(entity, _config.playerStartPosition);
-
-    std::map<const char*, AnimationComponent> animations = {
-        {"idle", helpers::createAnimation(PLAYER_SPRITESHEET_PATH, 0, 2, 100)},
-        {"walk", helpers::createAnimation(PLAYER_SPRITESHEET_PATH, 1, 4, 100)},
-    };
-    _registry.emplace<AnimatorComponent>(entity, animations);
-
-    _registry.emplace<MovementComponent>(entity, 1.5f, Vector2D{ 0.0f, 0.0f }, SDL_FLIP_NONE);
-
+    _registry.emplace<AnimatorComponent>(entity, _config.getPlayerAnimations());
+    _registry.emplace<MovementComponent>(entity, _config.playerMovementSpeed, Vector2D{ 0.0f, 0.0f }, SDL_FLIP_NONE);
     _registry.emplace<InputComponent>(entity, Vector2D{ 0.0f, 0.0f }, 0);
 }
 
